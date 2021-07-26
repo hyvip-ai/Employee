@@ -1,0 +1,21 @@
+require("dotenv").config()
+const express = require('express')
+const app = express()
+const bodyparser = require('body-parser')
+const mongoose = require('mongoose')
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({extended:false}))
+const cors = require('cors')
+app.use(cors())
+const defaultRoutes = require('./routes/default')
+const employeeRoutes = require('./routes/employee')
+mongoose.connect(process.env.URI , { useNewUrlParser : true, useUnifiedTopology : true})
+.then((res)=>{
+    app.listen(process.env.PORT,()=>{
+        console.log('> Connected...')
+    })
+})
+.catch(err=>console.log(`> Error while connecting to mongoDB : ${err.message}`))
+
+app.use('/',defaultRoutes)
+app.use('/',employeeRoutes)

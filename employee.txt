@@ -1,0 +1,12 @@
+{
+                        ID:1,
+                        Name:Employye 1,
+                        Email:email@gmail.com,
+                        PhoneNumber:1234567890
+                    }
+{
+                        ID:2,
+                        Name:Employye 2,
+                        Email:email2@gmail.com,
+                        PhoneNumber:1234567899
+                    }
